@@ -1,0 +1,53 @@
+[era number]
+1
+[/era number]
+
+[segment number]
+001
+[/segment number]
+
+[segment title]
+First Sight of Jorrvaskr
+[/segment title]
+
+[location]
+Whiterun Stables, Whiterun Gate, and the Wind District
+[/location]
+
+[tagline]
+Clover reaches Whiterun at dusk, loses her first city fistfight, and still ends the night staring up at Jorrvaskr with her dream burning brighter than ever.
+[/tagline]
+
+[adventure text]
+Clover made it to Whiterun as it was getting dark. Outside the gates, by the stables, a tall, strong-looking, armored woman was chatting loudly with a stable hand. Clover approached the armored woman and started talking to her, and immediately the woman challenged Clover to a fistfight, just for the sake of seeing who's stronger. Clover gladly accepted, confident in her abilities. However, she was duly pummeled. After staggering back to her feet, Clover saw that the strong woman was walking away, towards the gates, and Clover ran after her to ask why she wasn't in the Companions. The woman responded that she had tried to get in, but they wouldn't let her because during one of her trials she lost control and accidentally killed her sparring opponent. Clover continued talking and chatting with this woman up to the gate, which they both entered. Once inside the city, the woman made her way to the Bannered Mare, the local inn, while Clover, dragging Erik along, ran up to the Wind District to get a look at Jorrvaskr, the home of the Companions. It was too late in the night to enter, but she felt a rush of adventure just looking at it. After staring for a while, during which time Erik seemed to be getting bored, Clover and Erik went to the Bannered Mare.
+[/adventure text]
+
+[images]
+[/images]
+
+[commentary]
+[assistant]
+This segment works very well as an early Whiterun arrival beat because it gives Clover a sharp little reality check without dimming her essential fire. She reaches the city at dusk, meets a powerful stranger, immediately accepts a test of strength, gets thoroughly pummeled, and still remains more curious than ashamed afterward. That is exactly the right kind of failure for Clover: bruising, public, funny, and motivating rather than crushing.
+
+The armored woman is especially useful as a mirror figure. She is what Clover is drawn toward: loud, strong, physically impressive, and close enough to the warrior life that Clover instinctively wants to know her story. The fistfight also establishes Whiterun as a place where strength is tested directly, not merely admired from a distance. Clover does not just arrive at the threshold of her dream; she gets knocked around by someone who belongs to that rougher, larger world.
+
+Clover chasing after the woman after losing is the strongest character detail in the segment. A more guarded character might retreat in embarrassment, but Clover does not collapse inward. She gets back up, sees the woman leaving, and runs after her with questions. That keeps Clover’s confidence from reading as brittle arrogance. She can be beaten, but she does not become small.
+
+The detail about the woman being rejected by the Companions because she accidentally killed a sparring opponent adds an excellent shadow to Clover’s dream. Jorrvaskr remains thrilling, but the path toward it now has teeth. The Companions are not just a glorious hall full of heroic destiny; they are also a world where strength must be controlled, where tests can go wrong, and where wanting glory is not the same as being ready for it.
+
+The final movement to Jorrvaskr is lovely because it preserves Clover’s emotional momentum. She has just lost a fight, heard a grim story about failed admission, and arrived too late to enter, but none of that kills the rush. She still drags Erik up to the Wind District just to look at the hall. Erik getting bored while Clover stares at it gives the moment a grounded comic contrast, and it reinforces their dynamic beautifully: Clover is seized by the dream; Erik is present, loyal, and slightly more attached to ordinary practical reality.
+
+Overall, this is a strong first segment because it introduces Whiterun not as a static destination, but as a living challenge. Clover arrives, gets tested, learns that warrior glory has dangers attached, and still ends the night with her eyes fixed on Jorrvaskr. The segment says, very clearly: she is not ready yet, but she is absolutely coming.
+[/assistant]
+[/commentary]
+
+[summary]
+Clover arrives at Whiterun near dusk and meets a tall armored woman outside the stables. The woman challenges her to a fistfight, which Clover eagerly accepts and decisively loses. Rather than withdrawing in embarrassment, Clover follows the woman and asks why she is not in the Companions, learning that the woman had once failed a trial after accidentally killing a sparring opponent. After entering the city, Clover drags Erik up to the Wind District to look at Jorrvaskr, finding the hall closed for the night but feeling a powerful rush of adventure before the pair head to the Bannered Mare.
+[/summary]
+
+[state]
+Location: Bannered Mare, Whiterun
+Weapons: Not specified
+Gear: Not specified
+Objective: Enter Whiterun, pursue the dream of joining the Companions, and return to Jorrvaskr when it is open
+[/state]
