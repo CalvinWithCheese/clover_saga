@@ -1,0 +1,42 @@
+[era number]
+[/era number]
+
+[segment number]
+[/segment number]
+
+[segment title]
+[/segment title]
+
+[location]
+[/location]
+
+[tagline]
+[/tagline]
+
+[adventure text]
+[/adventure text]
+
+[images]
+[image title][/image title]
+[image location][/image location]
+[image alt text][/image alt text]
+[image caption][/image caption]
+[/images]*
+
+[commentary]
+[assistant][/assistant]
+[user][/user]
+[/commentary]**
+
+[summary]
+[/summary]
+
+[state]
+Location:
+Weapons:
+Gear:
+Objective:
+[/state]
+
+* Images may be blank or there may be multiple images.  If there are multiple images, repeat the [image title] through [image caption] format for each image.
+** There may be no user commentary.  There may also be further commentary, alternating between assistant and user.
