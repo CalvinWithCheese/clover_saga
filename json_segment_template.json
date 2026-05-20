@@ -5,31 +5,31 @@
   "location": "",
   "tagline": "",
   "adventureText": [
-	""
+    ""
   ],
   "images": [
-	{
-	  "src": "",
-	  "alt": "",
-	  "title": "",
-	  "caption": ""
-	}
+    {
+      "src": "",
+      "alt": "",
+      "title": "",
+      "caption": ""
+    }
   ],
   "commentary": [
-	{
-	  "speaker": "Assistant",
-	  "content": ""
-	},
-	{
-	  "speaker": "User",
-	  "content": ""
-	}
+    {
+      "speaker": "Assistant",
+      "content": ""
+    },
+    {
+      "speaker": "User",
+      "content": ""
+    }
   ],
   "summary": "",
   "state": {
-	"Location": "",
-	"Weapons": "",
-	"Gear": "",
-	"Objective": ""
+    "Location": "",
+    "Weapons": "",
+    "Gear": "",
+    "Objective": ""
   }
 }
