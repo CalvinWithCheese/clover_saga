@@ -1,0 +1,72 @@
+CLOVER STONEFIELD DOCUMENTATION PURPOSE
+
+This project consists of two primary documents:
+
+1. The Saga Document (Adventure Chronicle)
+2. The Canon Document (Character Codex)
+
+
+----------------------------------------
+SAGA DOCUMENT (ADVENTURE CHRONICLE)
+----------------------------------------
+
+Purpose:
+The Saga Document is a structured, chronological record of Clover Stonefield’s adventures as they occur during gameplay.
+
+Objectives:
+- Record each adventure segment in a consistent, repeatable format
+- Preserve the user’s original narration as the primary source material
+- Maintain continuity of events, locations, equipment, and character state
+- Provide a clear timeline of Clover’s progression through the world
+- Capture commentary and discussion about each segment without overwriting the original narration
+- Allow easy reference to past events without rereading large portions of text
+- Support long-term expansion across many segments and multiple narrative eras
+- Serve as the foundational dataset for potential future narrative generation (e.g., novelization)
+
+Design Principles:
+- Minimal manual maintenance
+- Consistent structure across all segments
+- Scalable to a large number of entries
+- Clear separation between narration, commentary, summary, and state
+
+
+----------------------------------------
+CANON DOCUMENT (CHARACTER CODEX)
+----------------------------------------
+
+Purpose:
+The Canon Document is a stable reference defining Clover Stonefield as a character.
+
+Objectives:
+- Establish a fixed, authoritative description of Clover’s personality, behavior, and physical characteristics
+- Define how Clover thinks, speaks, reacts, and behaves across situations
+- Lock in non-negotiable character traits to prevent drift over time
+- Provide a consistent reference for interpreting future events and writing
+- Define key relationships (e.g., Clover and Erik) in a stable, reusable format
+- Describe Clover’s baseline behavior in ordinary, non-dramatic contexts
+- Provide a clear, structured reference for AI-assisted writing and analysis
+- Support consistent portrayal across all segments and future generated content
+
+Design Principles:
+- Stability over time (not frequently rewritten)
+- Clarity and precision over narrative flourish
+- Structured, easily scannable sections
+- Separation of character definition from story progression
+- Explicit constraints to prevent misinterpretation
+
+
+----------------------------------------
+OVERALL PROJECT OBJECTIVE
+----------------------------------------
+
+Together, these two documents serve as:
+
+- A living chronicle of Clover’s journey (Saga Document)
+- A fixed reference for who Clover is (Canon Document)
+
+This dual-document system ensures that:
+- The story can grow freely without losing consistency
+- The character remains stable even as circumstances change
+- Future AI-assisted narrative generation can rely on both accurate history and accurate characterization
+
+The end goal is to maintain a coherent, scalable, and referenceable record of Clover Stonefield’s full story and identity.

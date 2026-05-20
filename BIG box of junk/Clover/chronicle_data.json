@@ -1,0 +1,229 @@
+{
+  "sidebar": {
+    "title": "Clover Stonefield",
+    "subtitle": "Adventure Chronicle"
+  },
+  "document": {
+    "eyebrow": "Chronicle Document",
+    "title": "The Saga of Clover Stonefield",
+    "description": "This document tracks Clover’s adventures in structured segments. Every segment follows the same order: Adventure Segment, Images, Commentary, Summary, and State."
+  },
+  "prologue": {
+    "slug": "prologue",
+    "label": "Prologue",
+    "title": "Prologue · Before the Road",
+    "subtitle": "A standalone introduction before Era I.",
+    "segments": [
+      {
+        "slug": "segment-000",
+        "number": "000",
+        "title": "Before the Road Knew Her Name",
+        "location": "Rorikstead",
+        "tagline": "Before steel and saga, certainty.",
+        "adventureText": [
+          "Before her name ever touched the road, before steel ever rang in her hands, Clover Stonefield was already certain of one thing: She was going to be remembered.",
+          "If the fields did not agree with Clover’s destiny, the stories did. The Companions were not simply a group of warriors in a hall to her; they were proof that what she wanted was real. And once she saw it clearly, she declared the decision out loud: she and Erik would leave for Whiterun in the morning."
+        ],
+        "images": [
+          {
+            "src": "https://placehold.co/1200x680/cfb589/2f1d08?text=Segment+000+Prologue",
+            "alt": "Clover in the Rorikstead fields, imagining future battles",
+            "title": "Before the Road",
+            "caption": "Rorikstead fields where Clover's certainty first outgrew the horizon."
+          },
+          {
+            "src": "https://placehold.co/900x1200/bfa47a/2f1d08?text=Stories+of+Jorrvaskr",
+            "alt": "Clover listening intently to stories of Jorrvaskr",
+            "title": "Stories That Point East",
+            "caption": "The tales that turned farm labor into prelude and Whiterun into destiny."
+          }
+        ]
+      }
+    ]
+  },
+  "eras": [
+    {
+      "slug": "era-one",
+      "label": "Era I",
+      "title": "Era I · The Road to Whiterun",
+      "subtitle": "Farmgirl bravado, travel dust, and the first hard knocks on the path toward glory.",
+      "segments": [
+        {
+          "slug": "segment-001",
+          "number": "001",
+          "title": "Dust on Her Boots",
+          "location": "Rorikstead to Whiterun Road",
+          "tagline": "[tagline]",
+          "adventureText": [
+            "Clover left Rorikstead with all the certainty in the world and roughly half the wisdom she thought she had. She talked nearly the whole road out of town, boasting to Erik about the fights she planned to win, the warriors she’d impress, and how fast Whiterun would recognize greatness once it saw her coming.",
+            "She kept shifting the iron greatsword on her shoulder like it weighed nothing, even though by noon it had begun introducing itself to every muscle in her back. She refused to admit this. When the road turned and Whiterun finally appeared in the distance, she grinned like she’d already conquered it."
+          ],
+          "images": [
+            {
+              "src": "https://placehold.co/720x460/e2d1ad/4d3815?text=Segment+Image+01",
+              "alt": "Clover on the road toward Whiterun",
+              "title": "First Sight of Whiterun",
+              "caption": "A visual record for the road east, with Clover still wearing travel clothes and carrying more confidence than practical experience."
+            }
+          ],
+          "commentary": [
+            {
+              "speaker": "Assistant",
+              "content": "This opening nails Clover’s momentum: she feels larger than the world she’s stepping into, which gives the whole segment a bright reckless energy."
+            },
+            {
+              "speaker": "User",
+              "content": "I like that she’s overconfident but not fake. The physical strain detail keeps it grounded and funny."
+            },
+            {
+              "speaker": "Assistant",
+              "content": "Agreed. Her voice stays bold, but the road quietly proves she still has growing to do."
+            }
+          ],
+          "summary": "Clover leaves Rorikstead with Erik and begins the journey toward Whiterun. She spends the trip talking boldly about future glory, ignores signs of physical strain, and arrives with determination fully intact.",
+          "state": {
+            "Location": "Whiterun approach road, city in sight",
+            "Weapons": "Iron greatsword, woodcutter’s axe",
+            "Gear": "Dusty travel cloak, road-worn boots, food supplies reduced",
+            "Status": "Tired but hiding it, spirits high",
+            "Special items": "Coin pouch, remaining travel provisions",
+            "Objective": "Enter Whiterun and begin her Companions pursuit"
+          }
+        },
+        {
+          "slug": "segment-002",
+          "number": "002",
+          "title": "Trouble on the Road",
+          "location": "Western Watch Road",
+          "tagline": "A sample entry showing the same structure with multiple images.",
+          "adventureText": [
+            "Clover got her chance sooner than expected when trouble found the road before she had even properly settled into Whiterun life. She launched herself into the fight with a kind of delighted fury that would have looked more impressive if she had not also nearly tripped on loose stone during the first charge.",
+            "Still, once steel started moving, Clover committed with her whole body and all her noise. Erik helped steady the encounter, while Clover transformed it into something halfway between a brawl and a declaration of destiny. By the end she was bruised, exhilarated, and fully prepared to describe the whole thing as a glorious victory with only minor editing."
+          ],
+          "images": [
+            {
+              "src": "https://placehold.co/700x420/dcc79d/4a3614?text=Segment+Image+02A",
+              "alt": "Roadside clash",
+              "title": "Roadside Clash",
+              "caption": "The encounter that let Clover finally swing steel in earnest, with all the enthusiasm and imperfect control one might expect."
+            },
+            {
+              "src": "https://placehold.co/640x760/d4bf95/4a3614?text=Segment+Image+02B",
+              "alt": "Aftermath on the road",
+              "title": "Aftermath and Boasting Rights",
+              "caption": "A second visual record showing how portrait images keep the same left-image, right-metadata layout."
+            }
+          ],
+          "commentary": [
+            {
+              "speaker": "Assistant",
+              "content": "Her growth feels earned because she doesn’t become elegant overnight—she stays loud, messy, and committed."
+            },
+            {
+              "speaker": "User",
+              "content": "Yes, and Erik balancing her chaos gives the fight a better rhythm than a solo triumph."
+            },
+            {
+              "speaker": "Assistant",
+              "content": "Exactly. It keeps the scene character-driven while still moving her legend forward."
+            }
+          ],
+          "summary": "Clover enters an early roadside fight near Whiterun, throws herself into it with loud aggression, and emerges bruised but thrilled. Erik helps stabilize the danger while Clover treats the whole event as proof that her warrior ambitions are justified.",
+          "state": {
+            "Location": "Roadside near Whiterun, fight concluded",
+            "Weapons": "Iron greatsword nicked from use",
+            "Gear": "Scuffed hide armor, no remaining healing potion",
+            "Status": "Bruised, winded, ecstatic",
+            "Special items": "Recovered coin and salvage from skirmish",
+            "Objective": "Leverage this win into real standing in Whiterun"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "era-two",
+      "label": "Era II",
+      "title": "Era II · First Steps into Legend",
+      "subtitle": "The dream sharpens, the stakes grow teeth, and Clover starts brushing against places larger than her swagger.",
+      "segments": [
+        {
+          "slug": "segment-003",
+          "number": "003",
+          "title": "The Hall of the Companions",
+          "location": "Whiterun",
+          "tagline": "A sample entry showing the structure when a segment has zero images.",
+          "adventureText": [
+            "Standing before Jorrvaskr hit Clover harder than she expected. She still talked plenty, because silence was never likely to save her, but there was something newly careful under the noise. This was not a roadside scuffle she could simply crash into and then narrate in her own favor afterward.",
+            "Even so, she held herself upright, squared her shoulders, and walked forward like she belonged there. Whether she truly did yet remained a separate question, but Clover had never been one to wait for permission before acting as though legend had already cleared a seat for her."
+          ],
+          "images": [],
+          "commentary": [
+            {
+              "speaker": "Assistant",
+              "content": "This widens the tone well—she is still Clover, but the setting finally pushes back on her certainty."
+            },
+            {
+              "speaker": "User",
+              "content": "That hesitation is exactly what I wanted. It keeps her boldness without making her flat."
+            }
+          ],
+          "summary": "Clover approaches Jorrvaskr and feels the weight of her dream more intensely than before. She remains talkative and bold, but the moment introduces a touch of seriousness as she steps toward the Companions.",
+          "state": {
+            "Location": "At Jorrvaskr, on the Companions’ threshold",
+            "Weapons": "Iron greatsword",
+            "Gear": "Presentable but worn hide armor",
+            "Status": "Nervous energy under outward bravado",
+            "Special items": "Small pouch of earnings",
+            "Objective": "Present herself to the Companions and secure a chance"
+          }
+        },
+		{
+		  "slug": "segment-004",
+		  "number": "004",
+		  "title": "Ulik the Ur-Troll Falls",
+		  "location": "Whiterun and Ulik's Cave",
+		  "tagline": "Clover and Erik bring down an ur-troll and carry its legend straight into Jorrvaskr.",
+		  "adventureText": [
+			"She did it.",
+			"Clover Stonefield finally killed Ulik the Ur-Troll.",
+			"With her fire-imbued silver greatsword, she and Erik struck out from Whiterun. The walked the road eastward, past the tower bridge. Clover leapt down the waterfall instead of walking the long way down, and entered Ulik's cave. She traveled to the back, to his den, unsheathed her greatsword and charged in. Ulik, the ur-troll, was so large that he made the massive cavern seen small. Clover held her sword tightly and waited for the right moment to lunge in, when Ulik was just a little off balance from a mighty swing. So she had to put herself close enough to him that he'd swing, but then step back to cause him to over reach and take him off balance. She was working this way, watching for her glorious moment to strike, when Erik, bless his heart, thought he saw an opening and ran at Ulik from behind. Clover couldn't risk Ulik's attention turning to Erik, so she had to immediately make herself the primary threat. So she threw herself at the beast, crashing him with all 6'4\" of her heavily armored body. This slightly - slightly, which the bards will emphasize just to keep in mind how massive this troll was - rocked Ulik, and Clover went to town. The beast batted at her, surely breaking some bones, but she kept swinging her fiery silver greatsword with all her strength, and the fire did its work. Unable to regenerate at his normal rate due to the burning from Clover's enchanted greatsword, the wounds she and Erik delivered could not close up faster than new ones were made.",
+			"Eventually the wounds overwhelmed the beast, and Ulik the Ur-Troll fell dead at the feet of Clover Stonefield and Erik the Slayer.",
+			"She walked into Jorrvaskr carrying the skull of Ulik the ur-troll. She threw it down onto the fire in the center of the room, the Companions sitting around eating at the tables around the fire."
+		  ],
+		  "images": [],
+		  "commentary": [
+			{
+			  "speaker": "Assistant",
+			  "content": "That entrance is not subtle. And it should not be. Walking into Jorrvaskr with a troll skull and throwing it onto the central fire is a declaration: measure me now. The deed carries real Companions weight, and the kill itself justifies a major shift in how Clover is seen."
+			},
+			{
+			  "speaker": "User",
+			  "content": "Clover had no symbolic intent with the fire—she did it because it looked badass and made a huge SSSSSSPHHHT! of sparks and ash. Then she launches right into telling the second Ulik battle story, already refined from repeating it to Erik all the way back to Whiterun."
+			},
+			{
+			  "speaker": "Assistant",
+			  "content": "That makes it even more Clover. Not ritual—impact. The skull toss is pure spectacle, and her immediate retelling shows myth-making in motion. She is loud, proud, and absolutely convinced glory gets bigger when shouted."
+			},
+			{
+			  "speaker": "User",
+			  "content": "No understatement here: the Companions would absolutely be impressed by this. Ulik was a massive threat. Clover earns full legendary status here—ULIK-KILLER, TROLL-SLAYER—and she renames her sword Trollbane."
+			},
+			{
+			  "speaker": "Assistant",
+			  "content": "Fair correction. This is not a maybe-impressed moment; this is a hall-stopping kill. Bringing down an ur-troll and presenting the skull in Jorrvaskr is unmistakable proof of elite combat credibility, and the Trollbane rename seals the identity shift."
+			}
+		  ],
+		  "summary": "Clover and Erik hunt Ulik the Ur-Troll in his cavern east of Whiterun. Clover uses fire from her enchanted silver greatsword to counter troll regeneration, absorbs heavy punishment, and helps finish the kill with Erik. She then carries Ulik's skull into Jorrvaskr, throws it into the central fire for maximum spectacle, and immediately recounts the battle as her reputation surges into full Companions-level legend.",
+		  "state": {
+			"Location": "Jorrvaskr, Whiterun",
+			"Weapons": "Fire-imbued silver greatsword renamed Trollbane",
+			"Gear": "Heavy armor, antlered helm, potion-laden belt",
+			"Status": "Victorious, battered, exultant, and publicly celebrated",
+			"Special items": "Ulik's skull (cast into Jorrvaskr's central fire)",
+			"Objective": "Convert the ur-troll kill into formal Companions standing and rising status"
+		  }
+		}
+      ]
+    }
+  ]
+}

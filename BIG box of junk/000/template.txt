@@ -1,0 +1,30 @@
+[segment number]
+[/segment number]
+
+[segment title]
+[/segment title]
+
+[location]
+[/location]
+
+[tagline]
+[/tagline]
+
+[adventure text]
+[/adventure text]
+
+[images]
+[/images]
+
+[commentary]
+[/commentary]
+
+[summary]
+[/summary]
+
+[state]
+Location:
+Weapons:
+Gear:
+Objective:
+[/state]

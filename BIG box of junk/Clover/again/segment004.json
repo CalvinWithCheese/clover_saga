@@ -1,0 +1,46 @@
+		{
+		  "slug": "segment-004",
+		  "number": "004",
+		  "title": "Ulik the Ur-Troll Falls",
+		  "location": "Whiterun and Ulik's Cave",
+		  "tagline": "Clover and Erik bring down an ur-troll and carry its legend straight into Jorrvaskr.",
+		  "adventureText": [
+			"She did it.",
+			"Clover Stonefield finally killed Ulik the Ur-Troll.",
+			"With her fire-imbued silver greatsword, she and Erik struck out from Whiterun. The walked the road eastward, past the tower bridge. Clover leapt down the waterfall instead of walking the long way down, and entered Ulik's cave. She traveled to the back, to his den, unsheathed her greatsword and charged in. Ulik, the ur-troll, was so large that he made the massive cavern seen small. Clover held her sword tightly and waited for the right moment to lunge in, when Ulik was just a little off balance from a mighty swing. So she had to put herself close enough to him that he'd swing, but then step back to cause him to over reach and take him off balance. She was working this way, watching for her glorious moment to strike, when Erik, bless his heart, thought he saw an opening and ran at Ulik from behind. Clover couldn't risk Ulik's attention turning to Erik, so she had to immediately make herself the primary threat. So she threw herself at the beast, crashing him with all 6'4\" of her heavily armored body. This slightly - slightly, which the bards will emphasize just to keep in mind how massive this troll was - rocked Ulik, and Clover went to town. The beast batted at her, surely breaking some bones, but she kept swinging her fiery silver greatsword with all her strength, and the fire did its work. Unable to regenerate at his normal rate due to the burning from Clover's enchanted greatsword, the wounds she and Erik delivered could not close up faster than new ones were made.",
+			"Eventually the wounds overwhelmed the beast, and Ulik the Ur-Troll fell dead at the feet of Clover Stonefield and Erik the Slayer.",
+			"She walked into Jorrvaskr carrying the skull of Ulik the ur-troll. She threw it down onto the fire in the center of the room, the Companions sitting around eating at the tables around the fire."
+		  ],
+		  "images": [],
+		  "commentary": [
+			{
+			  "speaker": "Assistant",
+			  "content": "That entrance is not subtle. And it should not be. Walking into Jorrvaskr with a troll skull and throwing it onto the central fire is a declaration: measure me now. The deed carries real Companions weight, and the kill itself justifies a major shift in how Clover is seen."
+			},
+			{
+			  "speaker": "User",
+			  "content": "Clover had no symbolic intent with the fire—she did it because it looked badass and made a huge SSSSSSPHHHT! of sparks and ash. Then she launches right into telling the second Ulik battle story, already refined from repeating it to Erik all the way back to Whiterun."
+			},
+			{
+			  "speaker": "Assistant",
+			  "content": "That makes it even more Clover. Not ritual—impact. The skull toss is pure spectacle, and her immediate retelling shows myth-making in motion. She is loud, proud, and absolutely convinced glory gets bigger when shouted."
+			},
+			{
+			  "speaker": "User",
+			  "content": "No understatement here: the Companions would absolutely be impressed by this. Ulik was a massive threat. Clover earns full legendary status here—ULIK-KILLER, TROLL-SLAYER—and she renames her sword Trollbane."
+			},
+			{
+			  "speaker": "Assistant",
+			  "content": "Fair correction. This is not a maybe-impressed moment; this is a hall-stopping kill. Bringing down an ur-troll and presenting the skull in Jorrvaskr is unmistakable proof of elite combat credibility, and the Trollbane rename seals the identity shift."
+			}
+		  ],
+		  "summary": "Clover and Erik hunt Ulik the Ur-Troll in his cavern east of Whiterun. Clover uses fire from her enchanted silver greatsword to counter troll regeneration, absorbs heavy punishment, and helps finish the kill with Erik. She then carries Ulik's skull into Jorrvaskr, throws it into the central fire for maximum spectacle, and immediately recounts the battle as her reputation surges into full Companions-level legend.",
+		  "state": {
+			"Location": "Jorrvaskr, Whiterun",
+			"Weapons": "Fire-imbued silver greatsword renamed Trollbane",
+			"Gear": "Heavy armor, antlered helm, potion-laden belt",
+			"Status": "Victorious, battered, exultant, and publicly celebrated",
+			"Special items": "Ulik's skull (cast into Jorrvaskr's central fire)",
+			"Objective": "Convert the ur-troll kill into formal Companions standing and rising status"
+		  }
+		}

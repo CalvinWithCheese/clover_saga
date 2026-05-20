@@ -1,0 +1,50 @@
+::ffff:127.0.0.1 - - [06/Apr/2026 16:51:04] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:51:13] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:52:10] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:52:19] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:52:37] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:53:15] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:53:19] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:54:25] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:54:33] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:56:27] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:56:27] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:56:27] "GET /style.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:56:27] "GET /script.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:56:27] code 404, message File not found
+::ffff:127.0.0.1 - - [06/Apr/2026 16:56:27] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:56:27] "GET /chronicle_data.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [06/Apr/2026 16:56:27] "GET /images/prologue.png HTTP/1.1" 200 -
+::1 - - [06/Apr/2026 21:05:20] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [16/Apr/2026 18:46:21] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [16/Apr/2026 18:46:22] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [16/Apr/2026 18:46:22] "GET /style.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [16/Apr/2026 18:46:22] "GET /script.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [16/Apr/2026 18:46:22] code 404, message File not found
+::ffff:127.0.0.1 - - [16/Apr/2026 18:46:22] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [16/Apr/2026 18:46:22] "GET /chronicle_data.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [16/Apr/2026 18:46:22] "GET /images/prologue.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [08/May/2026 21:31:12] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [08/May/2026 21:31:12] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [08/May/2026 21:31:12] "GET /style.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [08/May/2026 21:31:12] "GET /script.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [08/May/2026 21:31:12] code 404, message File not found
+::ffff:127.0.0.1 - - [08/May/2026 21:31:12] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [08/May/2026 21:31:12] "GET /chronicle_data.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [08/May/2026 21:31:12] "GET /images/prologue.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [16/May/2026 13:12:56] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [16/May/2026 13:12:57] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [16/May/2026 13:12:57] "GET /style.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [16/May/2026 13:12:57] "GET /script.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [16/May/2026 13:12:57] code 404, message File not found
+::ffff:127.0.0.1 - - [16/May/2026 13:12:57] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [16/May/2026 13:12:57] "GET /chronicle_data.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [16/May/2026 13:12:57] "GET /images/prologue.png HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [20/May/2026 00:36:22] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [20/May/2026 00:36:22] "GET /The%20Saga%20of%20Clover%20Stonefield.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [20/May/2026 00:36:22] "GET /style.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [20/May/2026 00:36:22] "GET /script.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [20/May/2026 00:36:22] code 404, message File not found
+::ffff:127.0.0.1 - - [20/May/2026 00:36:22] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [20/May/2026 00:36:22] "GET /chronicle_data.json HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [20/May/2026 00:36:22] "GET /images/prologue.png HTTP/1.1" 200 -

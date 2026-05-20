@@ -1,0 +1,40 @@
+{
+          "slug": ,
+          "number": ,
+          "title": ,
+          "location": ,
+          "tagline": ,
+          "adventureText": [
+          ],
+          "images": [
+            {
+              "src": ,
+              "alt": ,
+              "title": ,
+              "caption": 
+            }
+          ],
+          "commentary": [
+            {
+              "speaker": ,
+              "content": 
+            },
+            {
+              "speaker": ,
+              "content": 
+            },
+            {
+              "speaker": ,
+              "content": 
+            }
+          ],
+          "summary": ,
+          "state": {
+            "Location": ,
+            "Weapons": ,
+            "Gear": ,
+            "Status": ,
+            "Special items": ,
+            "Objective": 
+          }
+        }

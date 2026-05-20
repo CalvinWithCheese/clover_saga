@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clover Stonefield | Canon Codex Mock-Up</title>
+  <style>
+    :root {
+      --page-bg: #f2e8d3;
+      --page-bg-deep: #e7d8b8;
+      --panel: rgba(255, 249, 236, 0.78);
+      --panel-strong: rgba(248, 239, 220, 0.92);
+      --ink: #2f271c;
+      --ink-soft: #5f513c;
+      --accent: #765624;
+      --accent-soft: #a27f43;
+      --line: #b79863;
+      --line-dark: #8b6c3f;
+      --shadow: rgba(67, 48, 20, 0.14);
+      --canon-bg: rgba(232, 216, 181, 0.32);
+      --warning-bg: rgba(188, 150, 86, 0.12);
+      --key-bg: rgba(255, 255, 255, 0.26);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.68;
+      background:
+        radial-gradient(circle at top, rgba(255, 252, 244, 0.8), transparent 35%),
+        linear-gradient(to bottom, rgba(255,255,255,0.14), rgba(0,0,0,0.02)),
+        var(--page-bg);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      width: min(1260px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 26px 0 54px;
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr) 250px;
+      gap: 24px;
+    }
+
+    .sidebar,
+    .quickref {
+      position: sticky;
+      top: 18px;
+      align-self: start;
+      background: var(--panel);
+      border: 1px solid rgba(139, 108, 63, 0.42);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px var(--shadow);
+      padding: 18px 16px;
+      backdrop-filter: blur(2px);
+    }
+
+    .sidebar h1 {
+      margin: 0 0 6px;
+      font-size: 1.55rem;
+      line-height: 1.15;
+      color: var(--accent);
+    }
+
+    .sidebar .subtitle,
+    .quickref .subtitle {
+      margin: 0 0 16px;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+
+    .sidebar nav ul,
+    .quickref ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar nav a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: var(--ink);
+      transition: background 0.18s ease;
+    }
+
+    .sidebar nav a:hover {
+      background: rgba(118, 86, 36, 0.10);
+      text-decoration: none;
+    }
+
+    .sidebar .note {
+      margin-top: 16px;
+      padding: 10px 12px;
+      border-left: 4px solid var(--accent-soft);
+      background: rgba(255,255,255,0.22);
+      color: var(--ink-soft);
+      font-size: 0.93rem;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .document-header {
+      margin-bottom: 24px;
+      padding: 28px 30px;
+      background: var(--panel);
+      border: 1px solid rgba(139, 108, 63, 0.48);
+      border-radius: 18px;
+      box-shadow: 0 10px 28px var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      font-size: 0.84rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .document-header h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.08;
+      color: #4d3815;
+    }
+
+    .document-header p {
+      margin: 0;
+      max-width: 76ch;
+      color: var(--ink-soft);
+    }
+
+    .section {
+      margin-bottom: 24px;
+      padding: 22px 24px;
+      background: var(--panel-strong);
+      border: 1px solid rgba(139, 108, 63, 0.48);
+      border-radius: 18px;
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    .section-header {
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(139, 108, 63, 0.25);
+    }
+
+    .section-header h3 {
+      margin: 0 0 6px;
+      font-size: 1.55rem;
+      color: var(--accent);
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .snapshot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 18px;
+    }
+
+    .snapshot-card {
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.26);
+      border: 1px solid rgba(139, 108, 63, 0.26);
+      border-radius: 14px;
+    }
+
+    .snapshot-card h4,
+    .subsection h4,
+    .canon-box h4,
+    .warning-box h4,
+    .key-box h4,
+    .quickref h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .snapshot-card p,
+    .subsection p,
+    .canon-box p,
+    .warning-box p,
+    .key-box p,
+    .quickref li {
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .section p + p {
+      margin-top: 0.95rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .subsection {
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(139, 108, 63, 0.24);
+      border-radius: 14px;
+    }
+
+    .canon-box,
+    .warning-box,
+    .key-box {
+      margin-top: 16px;
+      padding: 15px 17px;
+      border-radius: 14px;
+    }
+
+    .canon-box {
+      background: var(--canon-bg);
+      border-left: 5px solid var(--accent);
+      border-top: 1px solid rgba(139, 108, 63, 0.28);
+      border-right: 1px solid rgba(139, 108, 63, 0.18);
+      border-bottom: 1px solid rgba(139, 108, 63, 0.18);
+    }
+
+    .warning-box {
+      background: var(--warning-bg);
+      border-left: 5px solid var(--line-dark);
+      border-top: 1px solid rgba(139, 108, 63, 0.28);
+      border-right: 1px solid rgba(139, 108, 63, 0.18);
+      border-bottom: 1px solid rgba(139, 108, 63, 0.18);
+    }
+
+    .key-box {
+      background: var(--key-bg);
+      border-left: 5px solid var(--accent-soft);
+      border-top: 1px solid rgba(139, 108, 63, 0.24);
+      border-right: 1px solid rgba(139, 108, 63, 0.16);
+      border-bottom: 1px solid rgba(139, 108, 63, 0.16);
+    }
+
+    .trait-list,
+    .boundary-list,
+    .voice-list,
+    .quickref ul {
+      display: grid;
+      gap: 10px;
+    }
+
+    .trait-item,
+    .boundary-item,
+    .voice-item {
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(139, 108, 63, 0.22);
+      border-radius: 12px;
+    }
+
+    .trait-item strong,
+    .boundary-item strong,
+    .voice-item strong {
+      color: #4c3816;
+    }
+
+    .quickref h3 {
+      font-size: 1.05rem;
+    }
+
+    .quickref ul {
+      margin: 0;
+    }
+
+    .quickref li {
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(139, 108, 63, 0.18);
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+
+    .quickref .mini-note {
+      margin-top: 14px;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+    }
+
+	.physical-grid {
+	  display: grid;
+	  grid-template-columns: repeat(2, minmax(0, 1fr));
+	  gap: 14px 18px;
+	  margin-top: 16px;
+	}
+
+	.physical-card {
+	  padding: 14px 16px;
+	  background: rgba(255,255,255,0.26);
+	  border: 1px solid rgba(139, 108, 63, 0.26);
+	  border-radius: 14px;
+	}
+
+	.physical-card h4 {
+	  margin: 0 0 8px;
+	  font-size: 1rem;
+	  letter-spacing: 0.05em;
+	  text-transform: uppercase;
+	  color: var(--accent);
+	}
+
+	.physical-card p {
+	  margin: 0;
+	}
+
+	.context-list {
+	  display: grid;
+	  gap: 12px;
+	  margin-top: 16px;
+	}
+
+	.context-item {
+	  padding: 14px 16px;
+	  background: rgba(255,255,255,0.22);
+	  border: 1px solid rgba(139, 108, 63, 0.22);
+	  border-radius: 12px;
+	}
+
+	.context-item strong {
+	  color: #4c3816;
+	}
+
+	.master-reference {
+	  margin: 18px auto 22px;
+	  max-width: 460px;
+	  text-align: center;
+	}
+
+	.master-reference img {
+	  display: block;
+	  width: 100%;
+	  height: auto;
+	  border-radius: 12px;
+	  border: 2px solid rgba(139, 108, 63, 0.55);
+	  box-shadow: 0 8px 20px rgba(67, 48, 20, 0.18);
+	  background: #dcc8a3;
+	}
+
+	.master-reference figcaption {
+	  margin-top: 10px;
+	  color: var(--ink-soft);
+	  font-size: 0.95rem;
+	  font-style: italic;
+	}
+
+	.context-list {
+	  display: grid;
+	  gap: 12px;
+	  margin-top: 16px;
+	}
+
+	.context-item {
+	  padding: 14px 16px;
+	  background: rgba(255,255,255,0.22);
+	  border: 1px solid rgba(139, 108, 63, 0.22);
+	  border-radius: 12px;
+	}
+
+	.context-item strong {
+	  color: #4c3816;
+	}
+
+	@media (max-width: 720px) {
+	  .physical-grid {
+		grid-template-columns: 1fr;
+	  }
+	}
+
+    .top-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1120px) {
+      .page {
+        grid-template-columns: 260px minmax(0, 1fr);
+      }
+
+      .quickref {
+        position: static;
+        grid-column: 1 / -1;
+        order: 3;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .document-header,
+      .section,
+      .sidebar,
+      .quickref {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .snapshot-grid,
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+	
+	.behavior-list {
+	  display: grid;
+	  gap: 12px;
+	  margin-top: 16px;
+	}
+
+	.behavior-item {
+	  padding: 14px 16px;
+	  background: rgba(255,255,255,0.22);
+	  border: 1px solid rgba(139, 108, 63, 0.22);
+	  border-radius: 12px;
+	}
+
+	.behavior-item strong {
+	  color: #4c3816;
+	}
+  </style>
+</head>
+<body>
+  <div class="page" id="top">
+    <aside class="sidebar">
+      <h1>Clover Stonefield</h1>
+      <p class="subtitle">Canon Codex</p>
+
+      <nav>
+        <ul>
+          <li><a href="#identity">Identity Snapshot</a></li>
+		  <li><a href="#physical">Physical Description</a></li>
+          <li><a href="#backstory">Backstory</a></li>
+          <li><a href="#personality">Personality Core</a></li>
+          <li><a href="#social">Social Behavior</a></li>
+		  <li><a href="#erik">Clover and Erik</a></li>
+          <li><a href="#combat">Combat Mindset</a></li>
+          <li><a href="#speech">Speech and Mannerisms</a></li>
+		  <li><a href="#ordinary">Clover on an Ordinary Day</a></li>
+          <li><a href="#boundaries">Boundaries of Character</a></li>
+          <li><a href="#prompting">Quick Prompt Reference</a></li>
+        </ul>
+      </nav>
+
+      <div class="note">
+        This document is structured as stable canon reference, not as a narrative log. It is meant to be skimmed quickly, trusted easily, and updated carefully.
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="document-header">
+        <p class="eyebrow">Canon Document</p>
+        <h2>The Codex of Clover Stonefield</h2>
+        <p>
+          This document is the stable reference source for Clover’s backstory, personality, habits, social behavior,
+          voice, and hard character boundaries.
+        </p>
+      </header>
+
+      <section class="section" id="identity">
+	  
+        <div class="section-header">
+          <h3>Identity Snapshot</h3>
+          <p>A fast, high-trust overview for locating the core facts and defining qualities immediately.</p>
+        </div>
+
+        <div class="snapshot-grid">
+          <article class="snapshot-card">
+            <h4>Name</h4>
+            <p>Clover Stonefield</p>
+          </article>
+          <article class="snapshot-card">
+            <h4>Origin</h4>
+            <p>Rorikstead, in the open land of Whiterun Hold</p>
+          </article>
+          <article class="snapshot-card">
+            <h4>Primary Dream</h4>
+            <p>To become a legendary warrior whose name is remembered and shouted.</p>
+          </article>
+          <article class="snapshot-card">
+            <h4>Core Disposition</h4>
+            <p>Loud, physical, impulsive, excitable, boastful, and deeply sincere in her hunger for glory.</p>
+          </article>
+          <article class="snapshot-card">
+            <h4>Primary Social Dynamic</h4>
+            <p>She barrels into interactions with energy, talks too much, and tends to center her own feats and ambitions.</p>
+          </article>
+          <article class="snapshot-card">
+            <h4>Emotional Temperature</h4>
+            <p>Hot-blooded, forward-moving, not subtle, not withdrawn, and rarely quiet for long.</p>
+          </article>
+        </div>
+
+        <div class="canon-box">
+          <h4>Canon</h4>
+          <p>Clover is not taciturn, brooding, or grimly restrained. Her baseline mode is expressive, loud, blurting, and often proudly self-focused.</p>
+        </div>
+      </section>
+
+<section class="section" id="physical">
+  <div class="section-header">
+    <h3>Physical Description</h3>
+    <p>Precise physical characteristics of Clover Stonefield.</p>
+  </div>
+
+  <figure class="master-reference">
+    <img src="Images/Master.png" alt="Approved master reference image of Clover Stonefield" />
+    <figcaption>Canonical visual reference for Clover Stonefield.</figcaption>
+  </figure>
+
+  <div class="physical-grid">
+
+    <article class="physical-card">
+      <h4>Height</h4>
+      <p>6 feet</p>
+    </article>
+
+    <article class="physical-card">
+      <h4>Build</h4>
+      <p>Solid, sturdy, broad-shouldered; visibly strong and muscular from labor</p>
+    </article>
+
+    <article class="physical-card">
+      <h4>Weight Class</h4>
+      <p>Heavy for her height and sex; muscle-dominant</p>
+    </article>
+
+    <article class="physical-card">
+      <h4>Skin Tone</h4>
+      <p>Light with sun exposure; not pale</p>
+    </article>
+
+    <article class="physical-card">
+      <h4>Skin Texture</h4>
+      <p>Slightly weathered; not soft or delicate</p>
+    </article>
+
+    <article class="physical-card">
+      <h4>Hair Color</h4>
+      <p>Blonde</p>
+    </article>
+
+    <article class="physical-card">
+      <h4>Hair Length</h4>
+      <p>To her middle back</p>
+    </article>
+
+    <article class="physical-card">
+      <h4>Hair Temperament</h4>
+      <p>Thick, slightly coarse, slightly naturally wavy; does not lie flat neatly</p>
+    </article>
+
+    <article class="physical-card">
+      <h4>Eyes</h4>
+      <p>Green</p>
+    </article>
+
+    <article class="physical-card">
+      <h4>Facial Structure</h4>
+      <p>Broad cheekbones, defined but not sharp jaw, overall strong and open structure</p>
+    </article>
+
+    <article class="physical-card">
+      <h4>Chin</h4>
+      <p>Rounded with slight forward presence</p>
+    </article>
+
+    <article class="physical-card">
+      <h4>Hands</h4>
+      <p>Calloused, work-marked; short practical nails</p>
+    </article>
+
+    <article class="physical-card">
+      <h4>Posture</h4>
+      <p>Forward-set, active; not formal or rigid</p>
+    </article>
+
+    <article class="physical-card">
+      <h4>Movement</h4>
+      <p>Direct, grounded, momentum-driven</p>
+    </article>
+
+  </div>
+
+  <div class="context-list">
+    <div class="context-item">
+      <strong>At Rest:</strong> Body remains physically present; not composed into still elegance.
+    </div>
+
+    <div class="context-item">
+      <strong>Traveling:</strong> Dirt, wear, and practical use appear natural and appropriate.
+    </div>
+
+    <div class="context-item">
+      <strong>In Combat:</strong> Full-body commitment; forceful, not minimal or refined.
+    </div>
+
+    <div class="context-item">
+      <strong>Trying to Impress:</strong> Effort toward presence is visible, but remains unpolished.
+    </div>
+  </div>
+
+  <div class="canon-box">
+    <h4>Canon</h4>
+    <p>Not delicate. Not aristocratic. Not ethereal. Physically grounded, sturdy, and work-shaped.</p>
+  </div>
+
+  <div class="warning-box">
+    <h4>Interpretation Risk</h4>
+    <p>Avoid refining her into a polished fantasy archetype. Maintain visible signs of labor and physical life.</p>
+  </div>
+</section>
+
+      <section class="section" id="backstory">
+        <div class="section-header">
+          <h3>Backstory</h3>
+          <p>The grounding material that explains where her habits, worldview, and ambitions come from.</p>
+        </div>
+
+        <p>
+          Clover grew up in Rorikstead, shaped by labor, open land, weather, and the practical demands of a world
+          where bodies must work and effort is immediately visible. She learns the world first through weight,
+          strain, fatigue, stubbornness, and ordinary forms of toughness.
+        </p>
+        <p>
+          Her imagination fixes on warrior glory early. The Companions are not merely respected fighters to her.
+          They represent a path out of ordinary obscurity and into the sort of remembered life that grips her heart.
+          She does not want comfort. She wants a name.
+        </p>
+
+        <div class="key-box">
+          <h4>Key Dynamic</h4>
+          <p>Her dream of greatness is not abstract ambition in the political or intellectual sense. It is visceral, social, and embodied. She wants victories, hard fights, admiration, and remembered deeds.</p>
+        </div>
+
+        <div class="two-column">
+          <article class="subsection">
+            <h4>Whiterun Hold as Home Ground</h4>
+            <p>She is psychologically rooted in fields, roads, practical effort, and the broad openness of the hold. This shapes her assumptions about what is admirable, what is real, and what counts as strength.</p>
+          </article>
+          <article class="subsection">
+            <h4>Erik in Her Early Life</h4>
+            <p>Erik belongs to the foundation of her life and ambitions. Their shared upbringing matters, but Clover’s louder momentum and greater heat often make her the more forceful presence of the pair.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="personality">
+        <div class="section-header">
+          <h3>Personality Core</h3>
+          <p>The internal engine of Clover’s behavior, values, and recurring patterns of thought.</p>
+        </div>
+
+        <div class="trait-list">
+          <div class="trait-item"><strong>Confident:</strong> Clover is supremely confident in herself, with all the surety of a mountain. Doubt doesn't even enter into her head, even when faced with what others would call impossible odds.</div>
+          <div class="trait-item"><strong>Glory-Hungry:</strong> She wants her life to matter in a public, memorable, warriorly way.</div>
+          <div class="trait-item"><strong>Physical First:</strong> She instinctively understands effort, pain, force, endurance, and momentum more readily than abstraction or subtle theory.</div>
+          <div class="trait-item"><strong>Impulsive:</strong> She tends to act before reflection has fully caught up, especially when pride or challenge are involved.</div>
+          <div class="trait-item"><strong>Boastful but Genuine:</strong> Her self-aggrandizing talk is real exuberance, not cool manipulation.</div>
+          <div class="trait-item"><strong>Earnest:</strong> Even when she is loud, silly, or overconfident, there is a sincere center to her ambition and emotional investment.</div>
+          <div class="trait-item"><strong>Not Naturally Reflective:</strong> She may notice consequences after the fact, but she is not primarily contemplative in temperament.</div>
+        </div>
+
+        <div class="warning-box">
+          <h4>Interpretation Risk</h4>
+          <p>Do not rewrite her as secretly delicate, deeply calculating, dryly sardonic, or emotionally veiled. Her emotions and drives tend to come outward with force rather than sit hidden under layers of restraint.</p>
+        </div>
+      </section>
+
+      <section class="section" id="social">
+        <div class="section-header">
+          <h3>Social Behavior</h3>
+          <p>How Clover behaves around other people, and how her personality tends to land in interaction.</p>
+        </div>
+
+        <div class="two-column">
+          <article class="subsection">
+            <h4>With Strangers</h4>
+            <p>She is likely to come in hot, speak freely, overshare confidence, and make herself known quickly. She does not naturally present as reserved, mysterious, or carefully managed.</p>
+          </article>
+          <article class="subsection">
+            <h4>With Warriors</h4>
+            <p>She is drawn to strength and prowess. She may become competitive, awed, eager to prove herself, or overly talkative in an attempt to establish her place.</p>
+          </article>
+          <article class="subsection">
+            <h4>With Authority</h4>
+            <p>Formal hierarchy does not automatically quiet her. She may try to behave, but strong emotion, pride, or excitement can shove discipline out of the way.</p>
+          </article>
+          <article class="subsection">
+            <h4>With Friends</h4>
+            <p>She is energetic, familiar, and often self-centered without necessarily intending harm. Her warmth is active and noisy rather than gentle or delicately attentive.</p>
+          </article>
+        </div>
+
+        <div class="key-box">
+          <h4>Key Dynamic: Clover and Erik</h4>
+          <p>Clover tends to burst outward while Erik provides steadier contrast. She is not quieting him so much as filling more space by default, running hotter, talking more, and pushing the shared momentum forward.</p>
+        </div>
+
+        <div class="canon-box">
+          <h4>Canon</h4>
+          <p>In social scenes, Clover blurts. She talks a lot. She is loud. She often talks about herself and the awesome fights she has had or expects to have.</p>
+        </div>
+      </section>
+
+<section class="section" id="erik">
+  <div class="section-header">
+    <h3>Clover and Erik</h3>
+    <p>The defining relationship of Clover’s early life and one of the central interpersonal anchors of her story.</p>
+  </div>
+
+  <p>
+    Erik is not incidental to Clover’s life. He belongs to her foundations. They grew up side by side in Rorikstead,
+    sharing the same world of fields, labor, weather, and adventure-dreaming youth. Their bond is old, familiar,
+    and shaped by long mutual knowledge rather than recent convenience. Erik likes books, and Clover likes to give Erik books.
+  </p>
+
+  <div class="two-column">
+    <article class="subsection">
+      <h4>Clover with Erik</h4>
+      <p>Clover is louder, hotter, and more momentum-driven in the pair. She tends to talk more, boast more, push forward more, and occupy more social and emotional space by default.</p>
+    </article>
+
+    <article class="subsection">
+      <h4>Erik with Clover</h4>
+      <p>Erik is steadier, more measured, and more likely to think before leaping. He is not weak, timid, or passive, but he does not burn with the same constant outward force that Clover does.</p>
+    </article>
+
+    <article class="subsection">
+      <h4>Shared Dynamic</h4>
+      <p>Their relationship works through familiarity, affection, contrast, and long habit. Clover surges; Erik stabilizes. Clover blurts; Erik is more likely to consider. Clover creates momentum; Erik often helps keep that momentum from becoming total disaster.</p>
+    </article>
+
+    <article class="subsection">
+      <h4>Emotional Tone</h4>
+      <p>The bond should feel warm, longstanding, lived-in, and natural. It should not feel formal, distant, newly tentative, or theatrically overcomplicated by default.</p>
+    </article>
+  </div>
+
+  <div class="canon-box">
+    <h4>Canon</h4>
+    <p>Erik is not simply “the quiet one.” He is thoughtful and steadier than Clover, as well as more intelligent, but still adventurous, still brave, even if he doesn't share the same dream for glory that Clover does.</p>
+  </div>
+
+  <div class="key-box">
+    <h4>Key Dynamic</h4>
+    <p>Clover does not drag along a lesser companion. She runs hotter. Erik runs steadier. Their difference is one of temperament, not worth. They respect each other, and Erik admires Clover's passion and allows her to take the lead.</p>
+  </div>
+
+  <div class="warning-box">
+    <h4>Interpretation Risk</h4>
+    <p>Do not flatten Erik into a prop for Clover, and do not flatten Clover into simple dominance. Their relationship works because each reveals something about the other.</p>
+  </div>
+</section>
+
+      <section class="section" id="combat">
+        <div class="section-header">
+          <h3>Combat Mindset</h3>
+          <p>How Clover emotionally and psychologically relates to conflict, danger, and the act of fighting.</p>
+        </div>
+
+        <div class="two-column">
+          <article class="subsection">
+            <h4>Before Battle</h4>
+            <p>She tends toward excitement, anticipation, bravado, and a bodily readiness that can slide into overconfidence.</p>
+          </article>
+          <article class="subsection">
+            <h4>During Battle</h4>
+            <p>She commits hard and fully. Her style should feel forceful, immediate, and emotionally engaged rather than clinical or detached. Fighting is FUN for her.</p>
+          </article>
+          <article class="subsection">
+            <h4>After Battle</h4>
+            <p>She is likely to relive the event out loud, boast about it, enlarge it in the telling, and emotionally feed on the significance of having survived it.</p>
+          </article>
+          <article class="subsection">
+            <h4>Meaning of Battle</h4>
+            <p>For Clover, fighting is not only fun and danger. It is proof of and test of her identity.</p>
+          </article>
+        </div>
+
+        <div class="warning-box">
+          <h4>Interpretation Risk</h4>
+          <p>Do not flatten combat into generic competence. Fighting should reveal her temperament: exuberant aggression, commitment, pride, and a tendency to turn experience into personal legend.</p>
+        </div>
+      </section>
+
+      <section class="section" id="speech">
+        <div class="section-header">
+          <h3>Speech and Mannerisms</h3>
+          <p>The practical voice rules that keep her dialogue and body language recognizable.</p>
+        </div>
+
+        <div class="voice-list">
+          <div class="voice-item"><strong>Volume:</strong> She is naturally loud and does not always regulate herself well.</div>
+          <div class="voice-item"><strong>Impulse:</strong> She blurts rather than elegantly concealing reactions.</div>
+          <div class="voice-item"><strong>Subject Matter:</strong> She often circles back to herself, her battles, her plans, her ambitions, and what she has done or intends to do.</div>
+          <div class="voice-item"><strong>Energy:</strong> Her speech has forward motion. It should not feel clipped, laconic, or glum by default.</div>
+          <div class="voice-item"><strong>Body Language:</strong> She is likely animated, physically expressive, and emotionally legible.</div>
+          <div class="voice-item"><strong>Self-Presentation:</strong> She can be proudly unpolished, with more force than finesse.</div>
+        </div>
+
+        <div class="canon-box">
+          <h4>Voice Rule</h4>
+          <p>When expressing an opinion, Clover often 'speaks with exclamation marks.'</p>
+        </div>
+      </section>
+
+<section class="section" id="ordinary">
+  <div class="section-header">
+    <h3>Clover on an Ordinary Day</h3>
+    <p>Baseline slice-of-life reference for Clover when she is not in the middle of a dramatic confrontation or major turning point.</p>
+  </div>
+
+  <p>
+    Clover does not become dainty, quiet, or restrained just because nothing dramatic is happening. On an ordinary day,
+    she is still physically present, loud, active, and wholehearted. Her ordinary mode should feel like the everyday
+    version of the same person seen in larger moments, not a different hidden self.
+  </p>
+
+  <div class="behavior-list">
+    <div class="behavior-item">
+      <strong>Eating:</strong> She eats a great deal and with gusto. Food is not approached delicately or absentmindedly. She eats like someone with a strong body, a healthy appetite, and no interest in pretending otherwise.
+    </div>
+
+    <div class="behavior-item">
+      <strong>Drinking:</strong> She drinks a lot and with gusto. Whether it is water after the road or alcohol in good spirits, her approach tends to be hearty rather than restrained.
+    </div>
+
+    <div class="behavior-item">
+      <strong>Sleeping:</strong> She sleeps hard and with gusto. Rest for Clover should feel full-bodied and decisive, not fragile, fussy, or light.
+    </div>
+
+	<div class="behavior-item">
+	  <strong>Activity:</strong> Clover does not remain idle for long. If there is nothing immediately demanding her attention, she will find something to do—checking gear, pacing, exploring nearby ground, bothering someone into conversation, or inventing a reason to move.
+	</div>
+
+	<div class="behavior-item">
+	  <strong>Hands Busy:</strong> When at rest, she often keeps her hands occupied. This can include sharpening, adjusting equipment, handling small objects, or picking at the environment around her rather than sitting completely still.
+	</div>
+
+	<div class="behavior-item">
+	  <strong>Exploratory Habit:</strong> Given time and space, she tends to wander short distances, look into things, or investigate surroundings rather than staying planted in one place without purpose.
+	</div>
+
+	<div class="behavior-item">
+	  <strong>Herbalism:</strong> Clover has a practical interest in plants and natural materials. She notices useful herbs, gathers them when available, and handles them with a straightforward, hands-on familiarity rather than formal study.
+	</div>
+  </div>
+
+  <div class="canon-box">
+    <h4>Canon</h4>
+    <p>Clover does ordinary things the way she does most things: wholeheartedly, physically, and with gusto.</p>
+  </div>
+
+  <div class="warning-box">
+    <h4>Interpretation Risk</h4>
+    <p>Do not write her ordinary life as muted, ethereal, tidy, or delicately feminine by default. Her baseline remains robust, energetic, and bodily grounded.</p>
+  </div>
+</section>
+
+      <section class="section" id="boundaries">
+        <div class="section-header">
+          <h3>Boundaries of Character</h3>
+          <p>The guardrails that help preserve canon consistency across scenes, summaries, and later narrative generation.</p>
+        </div>
+
+        <div class="boundary-list">
+          <div class="boundary-item"><strong>Do not make her brooding by default.</strong> She is more outward than inward in ordinary presentation.</div>
+          <div class="boundary-item"><strong>Do not make her socially hushed.</strong> She is talkative, blurt-prone, and big in a room.</div>
+          <div class="boundary-item"><strong>Do not over-intellectualize her motivation.</strong> Her ambitions are felt in the body and the social world, not primarily in abstract ideological terms.</div>
+          <div class="boundary-item"><strong>Do not turn her into a subtle manipulator.</strong> Her force usually arrives openly rather than through hidden strategic elegance.</div>
+          <div class="boundary-item"><strong>Do preserve sincerity.</strong> Her boasting can be funny or excessive, but it is not empty performance detached from belief. She believes everything she says when boasting about herself, and she doesn't boast about deeds that she has not accomplished (although in her excitement she may non-maliciously exaggerate).</div>
+        </div>
+      </section>
+
+      <section class="section" id="prompting">
+        <div class="section-header">
+          <h3>Quick Prompt Reference</h3>
+          <p>A compact, high-utility section for future AI prompting and consistency checking.</p>
+        </div>
+
+        <div class="canon-box">
+          <h4>Prompt Capsule</h4>
+          <p>Clover Stonefield is a loud, physically grounded, impulsive, boastful young warrior from Rorikstead who dreams of legendary glory, talks a lot, blurts freely, and tends to interpret the world through strength, effort, challenge, and remembered deeds.</p>
+        </div>
+
+        <div class="key-box">
+          <h4>Use This Section For</h4>
+          <p>Novelization prompts, scene generation, consistency checks, dialogue calibration, and reminders of what must remain stable when the saga grows larger.</p>
+        </div>
+
+        <a class="top-link" href="#top">Back to top</a>
+      </section>
+    </main>
+
+    <aside class="quickref">
+      <h3>At a Glance</h3>
+      <p class="subtitle">Mini reference panel</p>
+      <ul>
+        <li><strong>Home:</strong> Rorikstead, Whiterun Hold</li>
+        <li><strong>Mode:</strong> Loud, energetic, self-focused</li>
+        <li><strong>Dream:</strong> Warrior glory and a remembered name</li>
+		<li><strong>Look:</strong> Farm-built, muscular, sturdy, open-faced, physically expressive</li>
+        <li><strong>Socially:</strong> Takes up space fast and talks about herself a lot</li>
+        <li><strong>In battle:</strong> Forceful, excited, committed, pride-driven</li>
+        <li><strong>With Erik:</strong> Hotter and louder than Erik, and a more momentum-heavy presence than Erik</li>
+        <li><strong>Avoid:</strong> Brooding, taciturn, hyper-subtle interpretations</li>
+      </ul>
+      <p class="mini-note">This panel is especially useful when the document is being used as a quick reference rather than read from top to bottom.</p>
+    </aside>
+  </div>
+</body>
+</html>

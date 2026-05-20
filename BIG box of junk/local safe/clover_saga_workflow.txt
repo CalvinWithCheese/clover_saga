@@ -1,0 +1,28 @@
+CLOVER STONEFIELD SAGA WORKFLOW
+
+1. The user submits the text of a new adventure segment.
+
+2. The assistant provides brief commentary on the segment.
+
+3. Optional commentary loop:
+   - The user may respond to the assistant’s commentary.
+   - The assistant may respond in turn.
+   - This exchange may continue for any number of iterations.
+
+4. Optionally, the user may request image creation.
+
+5. Once the commentary and optional image creation is complete, the user gathers:
+   - The original adventure segment text
+   - The full commentary thread
+   - Optional images
+
+6. The user submits this combined material with a request to generate the next segment card.
+
+7. The assistant generates the full HTML for the segment card, including:
+   - Adventure text
+   - Commentary thread
+   - Summary
+   - State block
+   - Optional images section (if applicable)
+
+8. The user copies and pastes the generated HTML into the saga document.

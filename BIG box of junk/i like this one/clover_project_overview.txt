@@ -1,0 +1,105 @@
+CLOVER STONEFIELD PROJECT OVERVIEW
+
+----------------------------------------
+PROJECT OVERVIEW
+----------------------------------------
+
+This project is a structured system for documenting, organizing, and preserving the ongoing adventures of a character named Clover Stonefield within a heavily modded playthrough of The Elder Scrolls V: Skyrim.
+
+The project is built around two core documents:
+
+1. The Saga Document (Adventure Chronicle)
+   - A chronological record of Clover’s adventures
+   - Each entry (segment) contains the user’s narration, optional images, commentary, a summary, and a structured state record
+   - Designed to scale to a large number of entries over time
+
+2. The Canon Document (Character Codex)
+   - A stable reference defining Clover as a character
+   - Includes personality, behavior, physical description, relationships, and baseline day-to-day traits
+   - Serves as a consistency anchor for all future storytelling
+
+The system is designed to be:
+- Structured and consistent
+- Easy to update
+- Scalable to a long-running narrative
+- Readable and referenceable at any point
+
+
+----------------------------------------
+WHAT THIS PROJECT IS (SIMPLIFIED)
+----------------------------------------
+
+At its core, this project is:
+
+- A detailed record of a character’s journey through a game
+- A framework for analyzing and reacting to that journey
+- A structured archive that preserves both events and character identity
+- A foundation for turning gameplay into a coherent narrative
+
+
+----------------------------------------
+WHY THIS PROJECT EXISTS
+----------------------------------------
+
+This project exists to solve several problems that arise when trying to track and develop a long-running character-driven playthrough.
+
+1. Loss of Continuity
+   Without structure, it becomes difficult to remember:
+   - What has happened
+   - What Clover was equipped with
+   - Where she was
+   - What her current situation was
+
+   The Saga Document ensures that continuity is preserved in a clear and accessible format.
+
+2. Character Drift
+   Over time, especially with AI-assisted commentary or writing, a character’s personality can subtly change or become inconsistent.
+
+   The Canon Document prevents this by establishing a fixed reference for:
+   - How Clover behaves
+   - How she speaks
+   - What she values
+   - What she is like in both dramatic and ordinary situations
+
+3. Scalability
+   A long-running playthrough can generate a very large amount of content.
+
+   This project introduces:
+   - Repeatable segment structure
+   - Automated navigation (dynamic Table of Contents)
+   - Expandable document organization (eras, segments)
+
+   This allows the project to grow without becoming disorganized.
+
+4. Separation of Concerns
+   The project separates:
+   - Story progression (Saga Document)
+   - Character definition (Canon Document)
+
+   This prevents the two from interfering with each other and keeps both clear and usable.
+
+5. Future Narrative Use
+   By maintaining both:
+   - A clean record of events
+   - A stable definition of the character
+
+   The project creates a strong foundation for:
+   - Generating novel-style narratives
+   - Reconstructing scenes
+   - Expanding the story in a consistent way
+
+
+----------------------------------------
+OVERALL PURPOSE
+----------------------------------------
+
+The purpose of this project is to create a system that allows a character-driven gameplay experience to be:
+
+- Preserved accurately
+- Understood clearly
+- Expanded consistently
+- Referenced easily
+
+It transforms a series of gameplay events into a structured, coherent, and reusable narrative archive.
+
+In short, this project turns an evolving playthrough into a durable and organized story system centered on Clover Stonefield.

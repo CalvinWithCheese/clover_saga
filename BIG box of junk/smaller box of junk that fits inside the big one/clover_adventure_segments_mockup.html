@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clover Stonefield | Adventure Chronicle Mock-Up</title>
+  <style>
+    :root {
+      --page-bg: #f2e8d3;
+      --ink: #2f271c;
+      --ink-soft: #5d4f39;
+      --line: #b89c6a;
+      --line-dark: #8d7448;
+      --panel: rgba(255, 249, 236, 0.72);
+      --panel-strong: rgba(248, 239, 220, 0.9);
+      --accent: #7b5d29;
+      --accent-soft: #a78548;
+      --shadow: rgba(74, 54, 22, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at top, rgba(255, 252, 244, 0.85), transparent 38%),
+        linear-gradient(to bottom, rgba(255,255,255,0.18), rgba(0,0,0,0.02)),
+        var(--page-bg);
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 18px;
+      align-self: start;
+      padding: 20px 18px;
+      background: var(--panel);
+      border: 1px solid rgba(141, 116, 72, 0.45);
+      border-radius: 14px;
+      box-shadow: 0 8px 22px var(--shadow);
+      backdrop-filter: blur(2px);
+      display: grid;
+      gap: 14px;
+    }
+
+    .sidebar h1 { margin: 0 0 4px; font-size: 1.55rem; line-height: 1.15; color: var(--accent); }
+    .sidebar .subtitle { margin: 0; color: var(--ink-soft); font-size: 0.96rem; }
+
+    .global-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .global-controls button,
+    .collapsible-trigger {
+      border: 1px solid rgba(123, 93, 41, 0.45);
+      background: rgba(255,255,255,0.56);
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font: inherit;
+      text-align: left;
+    }
+
+    .global-controls button:hover,
+    .collapsible-trigger:hover { background: rgba(123, 93, 41, 0.12); }
+
+    .toc-list,
+    .toc-segments {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .toc-era-header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-segments {
+      margin-left: 16px;
+      padding-left: 10px;
+      border-left: 1px dashed rgba(123, 93, 41, 0.3);
+      margin-top: 8px;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 6px 8px;
+      border-radius: 6px;
+      color: var(--ink);
+    }
+
+    .toc-link:hover { background: rgba(123, 93, 41, 0.10); text-decoration: none; }
+
+    .content { min-width: 0; }
+
+    .document-header {
+      margin-bottom: 28px;
+      padding: 26px 28px;
+      background: var(--panel);
+      border: 1px solid rgba(141, 116, 72, 0.48);
+      border-radius: 18px;
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    .document-header .eyebrow {
+      margin: 0 0 8px;
+      font-size: 0.84rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .document-header h2 { margin: 0 0 10px; font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.1; color: #4d3815; }
+    .document-header p { margin: 0; max-width: 75ch; color: var(--ink-soft); }
+
+    .era {
+      margin-bottom: 22px;
+      border: 1px solid rgba(141, 116, 72, 0.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.18);
+      overflow: hidden;
+    }
+
+    .era-header {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid rgba(141, 116, 72, 0.35);
+      background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(184,156,106,0.08), rgba(255,255,255,0.2));
+      padding: 14px 18px;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .era-header strong { display: block; color: var(--accent); font-size: 1.25rem; }
+    .era-header span { color: var(--ink-soft); font-size: 0.95rem; }
+    .era-content { padding: 16px; display: grid; gap: 18px; }
+
+    .segment {
+      background: var(--panel-strong);
+      border: 1px solid rgba(141, 116, 72, 0.55);
+      border-radius: 18px;
+      box-shadow: 0 10px 26px var(--shadow);
+      overflow: hidden;
+    }
+
+    .segment-header {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid rgba(141, 116, 72, 0.35);
+      padding: 20px 22px 18px;
+      background: linear-gradient(to bottom, rgba(196, 167, 111, 0.16), rgba(255,255,255,0.16));
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .segment-kicker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .segment-header h4 { margin: 0 0 8px; font-size: 1.7rem; line-height: 1.15; color: #493512; }
+    .segment-header p { margin: 0; color: var(--ink-soft); }
+
+    .segment-body { padding: 22px; display: grid; gap: 22px; }
+
+    .text-block,
+    .images,
+    .commentary,
+    .summary,
+    .state {
+      padding: 18px 20px;
+      border-radius: 14px;
+    }
+
+    .text-block { background: rgba(255,255,255,0.24); border-left: 5px solid var(--accent-soft); }
+    .images { background: rgba(255,255,255,0.24); border: 1px solid rgba(141, 116, 72, 0.34); display: grid; gap: 18px; }
+    .commentary { background: rgba(237, 223, 190, 0.50); border: 1px solid rgba(141, 116, 72, 0.42); display: grid; gap: 12px; }
+    .summary { background: rgba(255,255,255,0.22); border: 1px dashed rgba(141, 116, 72, 0.58); }
+    .state { background: rgba(255,255,255,0.3); border: 1px solid rgba(141, 116, 72, 0.42); }
+
+    .text-block h5,
+    .images h5,
+    .commentary h5,
+    .summary h5,
+    .state h5 {
+      margin: 0 0 12px;
+      font-size: 1.02rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .text-block p { margin: 0 0 1rem; }
+    .text-block p:last-child { margin-bottom: 0; }
+
+    .image-entry {
+      display: grid;
+      grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(141, 116, 72, 0.22);
+    }
+    .image-entry:last-child { padding-bottom: 0; border-bottom: 0; }
+    .image-entry img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid rgba(141, 116, 72, 0.52);
+      box-shadow: 0 5px 14px rgba(74, 54, 22, 0.16);
+      background: #d8c5a0;
+    }
+    .image-meta { display: grid; gap: 8px; padding-top: 4px; }
+    .image-title { font-size: 1.1rem; font-weight: 700; color: #4a3614; }
+    .image-caption { margin: 0; color: var(--ink-soft); }
+
+    .commentary-list { display: grid; gap: 10px; }
+    .commentary-entry {
+      border: 1px solid rgba(141, 116, 72, 0.35);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.38);
+    }
+    .commentary-speaker {
+      margin: 0 0 6px;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+    }
+    .commentary-content { margin: 0; color: var(--ink); }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 18px;
+    }
+    .state-item dt {
+      margin: 0 0 4px;
+      font-size: 0.84rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .state-item dd { margin: 0; font-size: 1rem; color: var(--ink); }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 980px) {
+      .page { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+    }
+
+    @media (max-width: 760px) {
+      .segment-body,
+      .document-header,
+      .sidebar,
+      .era-content,
+      .era-header,
+      .segment-header { padding-left: 16px; padding-right: 16px; }
+      .state-grid,
+      .image-entry { grid-template-columns: 1fr; }
+      .image-meta { padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page" id="top">
+    <aside class="sidebar">
+      <div>
+        <h1>Clover Stonefield</h1>
+        <p class="subtitle">Adventure Chronicle</p>
+      </div>
+
+      <div class="global-controls">
+        <button type="button" id="expand-all">Expand All</button>
+        <button type="button" id="collapse-all">Collapse All</button>
+      </div>
+
+      <nav aria-label="Table of contents">
+        <ul id="toc" class="toc-list"></ul>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <header class="document-header">
+        <p class="eyebrow">Chronicle Document</p>
+        <h2>The Saga of Clover Stonefield</h2>
+        <p>
+          This document tracks Clover’s adventures in structured segments. Every segment follows the same order:
+          Adventure Segment, Images, Commentary, Summary, and State.
+        </p>
+      </header>
+
+      <section class="era" id="era-one" data-era-title="Era I · The Road to Whiterun">
+        <button class="era-header" type="button" data-target="era-one-content" aria-expanded="false">
+          <strong>Era I · The Road to Whiterun</strong>
+          <span>Farmgirl bravado, travel dust, and the first hard knocks on the path toward glory.</span>
+        </button>
+        <div class="era-content" id="era-one-content" hidden>
+          <article class="segment" id="segment-001" data-segment-number="001" data-segment-title="Dust on Her Boots">
+            <button class="segment-header" type="button" data-target="segment-001-content" aria-expanded="false">
+              <div class="segment-kicker">
+                <span>Era I</span>
+                <span>Segment 001</span>
+                <span>Rorikstead to Whiterun Road</span>
+              </div>
+              <h4>Dust on Her Boots</h4>
+              <p>[tagline]</p>
+            </button>
+
+            <div class="segment-body" id="segment-001-content" hidden>
+              <section class="text-block">
+                <h5>Adventure Segment</h5>
+                <p>Clover left Rorikstead with all the certainty in the world and roughly half the wisdom she thought she had. She talked nearly the whole road out of town, boasting to Erik about the fights she planned to win, the warriors she’d impress, and how fast Whiterun would recognize greatness once it saw her coming.</p>
+                <p>She kept shifting the iron greatsword on her shoulder like it weighed nothing, even though by noon it had begun introducing itself to every muscle in her back. She refused to admit this. When the road turned and Whiterun finally appeared in the distance, she grinned like she’d already conquered it.</p>
+              </section>
+
+              <section class="images">
+                <h5>Images</h5>
+                <figure class="image-entry">
+                  <img src="https://placehold.co/720x460/e2d1ad/4d3815?text=Segment+Image+01" alt="Clover on the road toward Whiterun" />
+                  <figcaption class="image-meta">
+                    <div class="image-title">First Sight of Whiterun</div>
+                    <p class="image-caption">A visual record for the road east, with Clover still wearing travel clothes and carrying more confidence than practical experience.</p>
+                  </figcaption>
+                </figure>
+              </section>
+
+              <section class="commentary">
+                <h5>Commentary</h5>
+                <div class="commentary-list">
+                  <article class="commentary-entry">
+                    <p class="commentary-speaker">Assistant</p>
+                    <p class="commentary-content">This opening nails Clover’s momentum: she feels larger than the world she’s stepping into, which gives the whole segment a bright reckless energy.</p>
+                  </article>
+                  <article class="commentary-entry">
+                    <p class="commentary-speaker">User</p>
+                    <p class="commentary-content">I like that she’s overconfident but not fake. The physical strain detail keeps it grounded and funny.</p>
+                  </article>
+                  <article class="commentary-entry">
+                    <p class="commentary-speaker">Assistant</p>
+                    <p class="commentary-content">Agreed. Her voice stays bold, but the road quietly proves she still has growing to do.</p>
+                  </article>
+                </div>
+              </section>
+
+              <section class="summary">
+                <h5>Summary</h5>
+                <p>Clover leaves Rorikstead with Erik and begins the journey toward Whiterun. She spends the trip talking boldly about future glory, ignores signs of physical strain, and arrives with determination fully intact.</p>
+              </section>
+
+              <section class="state">
+                <h5>State</h5>
+                <dl class="state-grid">
+                  <div class="state-item"><dt>Location</dt><dd>Whiterun approach road, city in sight</dd></div>
+                  <div class="state-item"><dt>Weapons</dt><dd>Iron greatsword, woodcutter’s axe</dd></div>
+                  <div class="state-item"><dt>Gear</dt><dd>Dusty travel cloak, road-worn boots, food supplies reduced</dd></div>
+                  <div class="state-item"><dt>Status</dt><dd>Tired but hiding it, spirits high</dd></div>
+                  <div class="state-item"><dt>Special items</dt><dd>Coin pouch, remaining travel provisions</dd></div>
+                  <div class="state-item"><dt>Objective</dt><dd>Enter Whiterun and begin her Companions pursuit</dd></div>
+                </dl>
+              </section>
+            </div>
+          </article>
+
+          <article class="segment" id="segment-002" data-segment-number="002" data-segment-title="Trouble on the Road">
+            <button class="segment-header" type="button" data-target="segment-002-content" aria-expanded="false">
+              <div class="segment-kicker">
+                <span>Segment 002</span>
+                <span>Era I</span>
+                <span>Western Watch Road</span>
+              </div>
+              <h4>Trouble on the Road</h4>
+              <p>A sample entry showing the same structure with multiple images.</p>
+            </button>
+
+            <div class="segment-body" id="segment-002-content" hidden>
+              <section class="text-block">
+                <h5>Adventure Segment</h5>
+                <p>Clover got her chance sooner than expected when trouble found the road before she had even properly settled into Whiterun life. She launched herself into the fight with a kind of delighted fury that would have looked more impressive if she had not also nearly tripped on loose stone during the first charge.</p>
+                <p>Still, once steel started moving, Clover committed with her whole body and all her noise. Erik helped steady the encounter, while Clover transformed it into something halfway between a brawl and a declaration of destiny. By the end she was bruised, exhilarated, and fully prepared to describe the whole thing as a glorious victory with only minor editing.</p>
+              </section>
+
+              <section class="images">
+                <h5>Images</h5>
+                <figure class="image-entry">
+                  <img src="https://placehold.co/700x420/dcc79d/4a3614?text=Segment+Image+02A" alt="Roadside clash" />
+                  <figcaption class="image-meta">
+                    <div class="image-title">Roadside Clash</div>
+                    <p class="image-caption">The encounter that let Clover finally swing steel in earnest, with all the enthusiasm and imperfect control one might expect.</p>
+                  </figcaption>
+                </figure>
+                <figure class="image-entry">
+                  <img src="https://placehold.co/640x760/d4bf95/4a3614?text=Segment+Image+02B" alt="Aftermath on the road" />
+                  <figcaption class="image-meta">
+                    <div class="image-title">Aftermath and Boasting Rights</div>
+                    <p class="image-caption">A second visual record showing how portrait images keep the same left-image, right-metadata layout.</p>
+                  </figcaption>
+                </figure>
+              </section>
+
+              <section class="commentary">
+                <h5>Commentary</h5>
+                <div class="commentary-list">
+                  <article class="commentary-entry">
+                    <p class="commentary-speaker">Assistant</p>
+                    <p class="commentary-content">Her growth feels earned because she doesn’t become elegant overnight—she stays loud, messy, and committed.</p>
+                  </article>
+                  <article class="commentary-entry">
+                    <p class="commentary-speaker">User</p>
+                    <p class="commentary-content">Yes, and Erik balancing her chaos gives the fight a better rhythm than a solo triumph.</p>
+                  </article>
+                  <article class="commentary-entry">
+                    <p class="commentary-speaker">Assistant</p>
+                    <p class="commentary-content">Exactly. It keeps the scene character-driven while still moving her legend forward.</p>
+                  </article>
+                </div>
+              </section>
+
+              <section class="summary">
+                <h5>Summary</h5>
+                <p>Clover enters an early roadside fight near Whiterun, throws herself into it with loud aggression, and emerges bruised but thrilled. Erik helps stabilize the danger while Clover treats the whole event as proof that her warrior ambitions are justified.</p>
+              </section>
+
+              <section class="state">
+                <h5>State</h5>
+                <dl class="state-grid">
+                  <div class="state-item"><dt>Location</dt><dd>Roadside near Whiterun, fight concluded</dd></div>
+                  <div class="state-item"><dt>Weapons</dt><dd>Iron greatsword nicked from use</dd></div>
+                  <div class="state-item"><dt>Gear</dt><dd>Scuffed hide armor, no remaining healing potion</dd></div>
+                  <div class="state-item"><dt>Status</dt><dd>Bruised, winded, ecstatic</dd></div>
+                  <div class="state-item"><dt>Special items</dt><dd>Recovered coin and salvage from skirmish</dd></div>
+                  <div class="state-item"><dt>Objective</dt><dd>Leverage this win into real standing in Whiterun</dd></div>
+                </dl>
+              </section>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="era" id="era-two" data-era-title="Era II · First Steps into Legend">
+        <button class="era-header" type="button" data-target="era-two-content" aria-expanded="false">
+          <strong>Era II · First Steps into Legend</strong>
+          <span>The dream sharpens, the stakes grow teeth, and Clover starts brushing against places larger than her swagger.</span>
+        </button>
+        <div class="era-content" id="era-two-content" hidden>
+          <article class="segment" id="segment-003" data-segment-number="003" data-segment-title="The Hall of the Companions">
+            <button class="segment-header" type="button" data-target="segment-003-content" aria-expanded="false">
+              <div class="segment-kicker">
+                <span>Segment 003</span>
+                <span>Era II</span>
+                <span>Whiterun</span>
+              </div>
+              <h4>The Hall of the Companions</h4>
+              <p>A sample entry showing the structure when a segment has zero images.</p>
+            </button>
+
+            <div class="segment-body" id="segment-003-content" hidden>
+              <section class="text-block">
+                <h5>Adventure Segment</h5>
+                <p>Standing before Jorrvaskr hit Clover harder than she expected. She still talked plenty, because silence was never likely to save her, but there was something newly careful under the noise. This was not a roadside scuffle she could simply crash into and then narrate in her own favor afterward.</p>
+                <p>Even so, she held herself upright, squared her shoulders, and walked forward like she belonged there. Whether she truly did yet remained a separate question, but Clover had never been one to wait for permission before acting as though legend had already cleared a seat for her.</p>
+              </section>
+
+              <section class="images">
+                <h5>Images</h5>
+                <p>No images recorded for this segment.</p>
+              </section>
+
+              <section class="commentary">
+                <h5>Commentary</h5>
+                <div class="commentary-list">
+                  <article class="commentary-entry">
+                    <p class="commentary-speaker">Assistant</p>
+                    <p class="commentary-content">This widens the tone well—she is still Clover, but the setting finally pushes back on her certainty.</p>
+                  </article>
+                  <article class="commentary-entry">
+                    <p class="commentary-speaker">User</p>
+                    <p class="commentary-content">That hesitation is exactly what I wanted. It keeps her boldness without making her flat.</p>
+                  </article>
+                </div>
+              </section>
+
+              <section class="summary">
+                <h5>Summary</h5>
+                <p>Clover approaches Jorrvaskr and feels the weight of her dream more intensely than before. She remains talkative and bold, but the moment introduces a touch of seriousness as she steps toward the Companions.</p>
+              </section>
+
+              <section class="state">
+                <h5>State</h5>
+                <dl class="state-grid">
+                  <div class="state-item"><dt>Location</dt><dd>At Jorrvaskr, on the Companions’ threshold</dd></div>
+                  <div class="state-item"><dt>Weapons</dt><dd>Iron greatsword</dd></div>
+                  <div class="state-item"><dt>Gear</dt><dd>Presentable but worn hide armor</dd></div>
+                  <div class="state-item"><dt>Status</dt><dd>Nervous energy under outward bravado</dd></div>
+                  <div class="state-item"><dt>Special items</dt><dd>Small pouch of earnings</dd></div>
+                  <div class="state-item"><dt>Objective</dt><dd>Present herself to the Companions and secure a chance</dd></div>
+                </dl>
+              </section>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function setExpanded(button, expanded) {
+      const targetId = button.getAttribute('data-target');
+      if (!targetId) return;
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      button.setAttribute('aria-expanded', String(expanded));
+      target.hidden = !expanded;
+    }
+
+    function toggleFromButton(button) {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      setExpanded(button, !expanded);
+    }
+
+    function bindCollapsibleButtons() {
+      document.querySelectorAll('.era-header, .segment-header, .collapsible-trigger').forEach((button) => {
+        button.addEventListener('click', () => toggleFromButton(button));
+      });
+    }
+
+    function buildToc() {
+      const toc = document.getElementById('toc');
+      toc.textContent = '';
+
+      document.querySelectorAll('.era').forEach((era) => {
+        const eraId = era.id;
+        const eraTitle = era.getAttribute('data-era-title') || eraId;
+        const tocEraId = `toc-${eraId}-segments`;
+
+        const eraLi = document.createElement('li');
+
+        const eraHeader = document.createElement('div');
+        eraHeader.className = 'toc-era-header';
+
+        const eraToggle = document.createElement('button');
+        eraToggle.type = 'button';
+        eraToggle.className = 'collapsible-trigger';
+        eraToggle.textContent = '▸';
+        eraToggle.setAttribute('aria-label', `Toggle ${eraTitle} in table of contents`);
+        eraToggle.setAttribute('aria-expanded', 'false');
+        eraToggle.setAttribute('data-target', tocEraId);
+
+        const eraLink = document.createElement('a');
+        eraLink.className = 'toc-link';
+        eraLink.href = `#${eraId}`;
+        eraLink.textContent = eraTitle;
+
+        eraHeader.appendChild(eraToggle);
+        eraHeader.appendChild(eraLink);
+
+        const segmentsList = document.createElement('ul');
+        segmentsList.id = tocEraId;
+        segmentsList.className = 'toc-segments';
+        segmentsList.hidden = true;
+
+        era.querySelectorAll('.segment').forEach((segment) => {
+          const number = segment.getAttribute('data-segment-number') || '???';
+          const title = segment.getAttribute('data-segment-title') || segment.id;
+          const item = document.createElement('li');
+          const link = document.createElement('a');
+          link.className = 'toc-link';
+          link.href = `#${segment.id}`;
+          link.textContent = `Segment ${number} · ${title}`;
+		  link.addEventListener('click', () => {
+            const eraHeaderButton = era.querySelector('.era-header');
+            const segmentHeaderButton = segment.querySelector('.segment-header');
+            if (eraHeaderButton) setExpanded(eraHeaderButton, true);
+            if (segmentHeaderButton) setExpanded(segmentHeaderButton, true);
+          });
+          item.appendChild(link);
+          segmentsList.appendChild(item);
+        });
+
+        eraLi.appendChild(eraHeader);
+        eraLi.appendChild(segmentsList);
+        toc.appendChild(eraLi);
+      });
+    }
+
+    function syncTocArrows() {
+      document.querySelectorAll('.collapsible-trigger').forEach((button) => {
+        button.textContent = button.getAttribute('aria-expanded') === 'true' ? '▾' : '▸';
+      });
+    }
+
+    function expandCollapseAll(expand) {
+      document.querySelectorAll('.era-header, .segment-header, .collapsible-trigger').forEach((button) => {
+        setExpanded(button, expand);
+      });
+      syncTocArrows();
+    }
+
+    document.getElementById('expand-all').addEventListener('click', () => expandCollapseAll(true));
+    document.getElementById('collapse-all').addEventListener('click', () => expandCollapseAll(false));
+
+    buildToc();
+    bindCollapsibleButtons();
+    syncTocArrows();
+  </script>
+</body>
+</html>

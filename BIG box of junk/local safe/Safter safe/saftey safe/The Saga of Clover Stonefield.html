@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clover Stonefield | Adventure Chronicle Mock-Up</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="page" id="top">
+    <aside class="sidebar">
+      <div>
+        <h1 id="sidebar-title"></h1>
+        <p class="subtitle" id="sidebar-subtitle"></p>
+      </div>
+
+      <div class="global-controls">
+        <button type="button" id="expand-all">Expand All</button>
+        <button type="button" id="collapse-all">Collapse All</button>
+      </div>
+
+      <nav aria-label="Table of contents">
+        <ul id="toc" class="toc-list"></ul>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <header class="document-header">
+        <p class="eyebrow" id="doc-eyebrow"></p>
+        <h2 id="doc-title"></h2>
+        <p id="doc-description"></p>
+      </header>
+
+      <div id="eras-root"></div>
+    </main>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
